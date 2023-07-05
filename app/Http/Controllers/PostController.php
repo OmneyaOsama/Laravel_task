@@ -91,4 +91,17 @@ class PostController extends Controller
      // Return a JSON response indicating successful deletion
         return response()->json('Post deleted successfully');
     }
+
+
+
+    public function search(Request $request)
+{
+    $query = $request->input('query');
+
+    $posts = Post::where('title', 'like', "%$query%")
+                 ->orWhere('content', 'like', "%$query%")
+                 ->get();
+
+    return response()->json($posts);
+}
 }

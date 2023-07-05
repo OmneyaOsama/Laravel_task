@@ -25,6 +25,8 @@ Route::get('posts/{id}', [PostController::class, 'show']); //Display a single po
 Route::post('posts', [PostController::class, 'store']);   // Create a new post
 Route::put('posts/{id}', [PostController::class, 'update']);  // Update an existing post
 Route::delete('posts/{id}', [PostController::class, 'destroy']);  // Delete a post
+Route::get('/posts/search', [PostController::class,'search']);
+
 
 
 
