@@ -26,6 +26,9 @@ Route::post('posts', [PostController::class, 'store']);   // Create a new post
 Route::put('posts/{id}', [PostController::class, 'update']);  // Update an existing post
 Route::delete('posts/{id}', [PostController::class, 'destroy']);  // Delete a post
 Route::get('/posts/search', [PostController::class,'search']);
+Route::post('/posts/{postId}/categories/attach',[PostController::class,'attachCategories'] );
+Route::post('/posts/{postId}/categories/detach', [PostController::class,'detachCategories']);
+
 
 
 

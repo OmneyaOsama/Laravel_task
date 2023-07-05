@@ -104,4 +104,28 @@ class PostController extends Controller
 
     return response()->json($posts);
 }
+
+        public function attachCategories(Request $request, $postId)
+        {
+            $post = Post::findOrFail($postId);
+            $categories = $request->input('categories');
+
+            $post->categories()->attach($categories);
+
+            return response()->json(['message' => 'Categories attached successfully']);
+        }
+
+
+        public function detachCategories(Request $request, $postId)
+        {
+            $post = Post::findOrFail($postId);
+            $categories = $request->input('categories');
+
+            $post->categories()->detach($categories);
+
+            return response()->json(['message' => 'Categories detached successfully']);
+        }
+
+
+
 }
